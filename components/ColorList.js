@@ -12,7 +12,7 @@ export default ({ navigation }) => {
     <ColorButton
       key={ item.id }
       backgroundColor={ item.color }
-      onPress={ () => navigation.navigate('Details', { color: item.color }) }
+      onPress={ () => navigation.navigate('Details', { colorName: item.color }) }
     />
   )
 
