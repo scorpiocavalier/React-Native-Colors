@@ -1,31 +1,24 @@
-import React, { useState } from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import ColorDetails from './components/ColorDetails'
+import ColorList from './components/ColorList'
 
-import ColorButton from './components/ColorButton'
-import ColorForm from './components/ColorForm'
-import useColors from './hooks/useColors'
-
-export default function App () {
-  const [ backgroundColor, setBackgroundColor ] = useState('green')
-  const { colors, addColor } = useColors()
-
-  const renderItem = ({ item }) => (
-    <ColorButton
-      key={ item.id }
-      backgroundColor={ item.color }
-      onPress={ setBackgroundColor }
-    />
-  )
+export default () => {
+  const { Navigator, Screen } = createStackNavigator()
 
   return (
-    <>
-      <ColorForm onAdd={ addColor } />
-      <FlatList
-        style={ [ styles.container, { backgroundColor } ] }
-        data={ colors }
-        renderItem={ renderItem }
-      />
-    </>
+    <NavigationContainer>
+      <Navigator>
+        <Screen
+          name='Home'
+          options={ { title: 'Color List' } }
+          component={ ColorList }
+        />
+        <Screen name='Details' component={ ColorDetails } />
+      </Navigator>
+    </NavigationContainer>
   )
 }
 
