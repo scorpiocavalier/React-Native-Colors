@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "ColorCatalog",
+    "description": "Catalog your colors.",
     "slug": "ColorCatalog",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,6 +17,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.scorpiocavalier.colorcatalog"
+    },
     "ios": {
       "supportsTablet": true
     },
